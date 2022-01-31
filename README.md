@@ -4,7 +4,7 @@
 
 
 ## 2. Features
- * 
+ * Name your Robot
  * 
  * 
 
