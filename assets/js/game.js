@@ -47,5 +47,6 @@ var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? En
     window.alert(playerName + " still has " + playerHealth + " health left.");
   }
 
+}
 
 fight();
