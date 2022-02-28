@@ -3,7 +3,7 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// You can also log multiple values at once like this
+// console.log the Players name, strength and health
 console.log(playerName, playerAttack, playerHealth);
 
 var enemyNames = ["Roborto", "Android Andy", "Megatron"];
@@ -12,15 +12,7 @@ var enemyAttack = 12;
 
 
 
-for(var i = 0; i < enemyNames.length; i++) {
-  console.log(enemyNames[i]);
-  console.log(i);
-  console.log(enemyNames[i] + " is at " + i + " index");
-}
-
-
-
-var fight = function() {
+var fight = function(enemyName) {
   // Alert players that they are starting the round
   window.alert("Welcome to Robot Gladiators!");
 
@@ -76,4 +68,7 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
 
 }
 
-// fight();
+
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
