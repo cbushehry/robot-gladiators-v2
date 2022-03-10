@@ -7,6 +7,7 @@ var enemyNames = ['BENDER', 'ULTRON', 'MEGATRON'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
@@ -27,7 +28,7 @@ var fight = function(enemyName) {
         break;
       }
     }
-
+ 
     // remove enemy's health by subtracting the amount set in the playerAttack variable
     enemyHealth = enemyHealth - playerAttack;
     console.log(
@@ -130,6 +131,7 @@ var endGame = function() {
   }
 };
 
+
 // go to shop between battles function
 var shop = function() {
   // ask player what they'd like to do
@@ -179,6 +181,8 @@ var shop = function() {
       break;
   }
 };
+
+
 
 // start first game when page loads
 startGame();
