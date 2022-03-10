@@ -64,11 +64,17 @@ var fight = function(enemyName) {
       }
     }
   }
-}
+};
 
 
 for(var i = 0; i < enemyNames.length; i++) {
-  debugger;
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+
   // call fight function with enemy-robot
-  fight(enemyNames[i]);
+  fight(pickedEnemyName);
 }
+
+
+
+// fight();
