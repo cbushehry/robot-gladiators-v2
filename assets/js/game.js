@@ -37,15 +37,15 @@ var playerInfo = {
 var enemyInfo = [
   {
     name: 'VOLTRON',
-    attack: randomNumber(10, 14)
+    attack: randomNumber(10, 12)
   },
   {
     name: 'MEGATRON',
-    attack: randomNumber(11, 15)
+    attack: randomNumber(12, 14)
   },
   {
     name: 'ULTRON',
-    attack: randomNumber(12, 16)
+    attack: randomNumber(13, 15)
   }
 ];
 
