@@ -65,6 +65,15 @@ var fight = function(enemyName) {
   }
 };
 
+
+// function to generate a random numeric value
+var randomNumber = function(min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value;
+};
+
+
 // function to start a new game
 var startGame = function() {
   // reset player stats
@@ -82,8 +91,10 @@ var startGame = function() {
       // pick new enemy to fight based on the index of the enemyNames array
       var pickedEnemyName = enemyNames[i];
 
-      // reset enemyHealth before starting new fight
-      enemyHealth = Math.floor(Math.random() * 60);
+      // generate random damage value based on player's attack power
+      var damage = randomNumber(playerAttack - 3, playerAttack);
+
+      enemyHealth = Math.max(0, enemyHealth - damage);  
 
       // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
       fight(pickedEnemyName);
@@ -109,6 +120,7 @@ var startGame = function() {
   // after loop ends, we are either out of playerHealth or enemies to fight, so run the endGame function
   endGame();
 };
+
 
 // function to end the entire game
 var endGame = function() {
