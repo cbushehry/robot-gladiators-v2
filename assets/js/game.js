@@ -2,7 +2,7 @@
 
 // function to generate a random numeric value
 var randomNumber = function(min, max) {
-  var value = Math.floor(Math.random() * (max - min + 1) + min);
+  var value = Math.floor(Math.random() * (max - min) + min);
 
   return value;
 };
@@ -116,7 +116,6 @@ var fight = function(enemy) {
   }
 };
 
-
 // function to start a new game
 var startGame = function() {
   // reset player stats
@@ -124,10 +123,13 @@ var startGame = function() {
 
   // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
-    // if player is still alive, keep fight next enemy
+    // check player stats
+    console.log(playerInfo);
+
+    // if player is still alive, keep fighting
     if (playerInfo.health > 0) {
       // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-      window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
+      window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
       // pick new enemy to fight based on the index of the enemyInfo array
       var pickedEnemyObj = enemyInfo[i];
@@ -135,14 +137,16 @@ var startGame = function() {
       // set health for picked enemy
       pickedEnemyObj.health = randomNumber(40, 60);
 
+      console.log(pickedEnemyObj);
+
       // pass the pickedEnemyObj object variable's value into the fight function, where it will assume the value of the enemy parameter
       fight(pickedEnemyObj);
 
-      // if player is still alive and we're not at the last enemy in the array
+      // if player is still alive after the fight and we're not at the last enemy in the array
       if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
         // ask if player wants to use the store before next round
         var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
-      
+
         // if yes, take them to the store() function
         if (storeConfirm) {
           shop();
@@ -160,6 +164,7 @@ var startGame = function() {
   endGame();
 };
 
+// function to end the entire game
 var endGame = function() {
   window.alert("The game has now ended. Let's see how you did!");
 
@@ -168,14 +173,14 @@ var endGame = function() {
   if (highScore === null) {
     highScore = 0;
   }
+
   // if player has more money than the high score, player has new high score!
   if (playerInfo.money > highScore) {
     localStorage.setItem("highscore", playerInfo.money);
     localStorage.setItem("name", playerInfo.name);
 
     alert(playerInfo.name + " now has the high score of " + playerInfo.money + "!");
-  } 
-  else {
+  } else {
     alert(playerInfo.name + " did not beat the high score of " + highScore + ". Maybe next time!");
   }
 
@@ -184,8 +189,7 @@ var endGame = function() {
 
   if (playAgainConfirm) {
     startGame();
-  } 
-  else {
+  } else {
     window.alert("Thank you for playing Robot Gladiators! Come back soon!");
   }
 };
@@ -196,6 +200,9 @@ var shop = function() {
   var shopOptionPrompt = window.prompt(
     "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
   );
+
+  // convert answer from prompt to an actual number
+  shopOptionPrompt = parseInt(shopOptionPrompt);
 
   // use switch case to carry out action
   switch (shopOptionPrompt) {
@@ -229,7 +236,6 @@ var getPlayerName = function() {
 
 
 /* GAME INFORMATION / VARIABLES */
-// player information
 var playerInfo = {
   name: getPlayerName(),
   health: 100,
@@ -245,8 +251,7 @@ var playerInfo = {
       window.alert("Refilling player's health by 20 for 7 dollars.");
       this.health += 20;
       this.money -= 7;
-    } 
-    else {
+    } else {
       window.alert("You don't have enough money!");
     }
   },
@@ -255,8 +260,7 @@ var playerInfo = {
       window.alert("Upgrading player's attack by 6 for 7 dollars.");
       this.attack += 6;
       this.money -= 7;
-    } 
-    else {
+    } else {
       window.alert("You don't have enough money!");
     }
   }
