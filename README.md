@@ -1,7 +1,9 @@
 # Robot Gladiators!
 
 ## 1. Description
-Robot Gladiators is a game made using HTML and JavaScript that allows the user to name a character and fight robots.
+Robot Gladiators is a game made using HTML and JavaScript that allows the user to name a character and fight robots. This application was built almost entirely with JavaScript
+
+DEPLOYMENT: Project has not been deployed yet
 
 ## 2. Features
  * Name your robot
