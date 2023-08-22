@@ -191,28 +191,28 @@ var getPlayerName = function() {
 /* GAME INFORMATION / VARIABLES */
 var playerInfo = {
   name: getPlayerName(),
-  health: 100,
-  attack: 10,
+  health: 120,
+  attack: 12,
   money: 10,
   reset: function() {
-    this.health = 100;
-    this.money = 10;
+    this.health = 120;
+    this.money = 12;
     this.attack = 10;
   },
   refillHealth: function() {
     if (this.money >= 7) {
-      window.alert("Refilling player's health by 20 for 7 dollars.");
-      this.health += 20;
-      this.money -= 7;
+      window.alert("Refilling player's health by 40 for 5 dollars.");
+      this.health += 50;
+      this.money -= 5;
     } else {
       window.alert("You don't have enough money!");
     }
   },
   upgradeAttack: function() {
-    if (this.money >= 7) {
-      window.alert("Upgrading player's attack by 6 for 7 dollars.");
-      this.attack += 6;
-      this.money -= 7;
+    if (this.money >= 6) {
+      window.alert("Upgrading player's attack by 9 for 5 dollars.");
+      this.attack += 9;
+      this.money -= 5;
     } else {
       window.alert("You don't have enough money!");
     }
@@ -223,16 +223,16 @@ var playerInfo = {
 // enemy information
 var enemyInfo = [
   {
-    name: 'VOLTRON',
-    attack: randomNumber(10, 12)
+    name: 'ENEMY ROBOT 1',
+    attack: randomNumber(11, 12)
   },
   {
-    name: 'ULTRON',
-    attack: randomNumber(11, 14)
+    name: 'ENEMY ROBOT 2',
+    attack: randomNumber(12, 13)
   },
   {
     name: 'SUPER MEGATRON',
-    attack: randomNumber(12, 15)
+    attack: randomNumber(13, 15)
   }
 ];
 
