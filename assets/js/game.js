@@ -178,7 +178,6 @@ var shop = function() {
 
 var getPlayerName = function() {
   var name = "";
-
   while (name === "" || name === null) {
     name = prompt("What is your robot's name?");
   }
@@ -199,6 +198,7 @@ var playerInfo = {
     this.money = 12;
     this.attack = 10;
   },
+
   refillHealth: function() {
     if (this.money >= 7) {
       window.alert("Refilling player's health by 40 for 5 dollars.");
@@ -208,6 +208,7 @@ var playerInfo = {
       window.alert("You don't have enough money!");
     }
   },
+
   upgradeAttack: function() {
     if (this.money >= 6) {
       window.alert("Upgrading player's attack by 9 for 5 dollars.");
@@ -218,7 +219,6 @@ var playerInfo = {
     }
   }
 };
-
 
 // enemy information
 var enemyInfo = [
@@ -241,7 +241,6 @@ console.log(enemyInfo[0]);
 console.log(enemyInfo[0].name);
 console.log(enemyInfo[0]['attack']);
 /* END GAME INFORMATION / VARIABLES */
-
 
 /* RUN GAME */
 startGame();
