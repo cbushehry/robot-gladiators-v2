@@ -195,8 +195,8 @@ const playerInfo = {
   money: 10,
   reset: function() {
     this.health = 120;
-    this.money = 12;
-    this.attack = 10;
+    this.attack = 12;
+    this.money = 10;
   },
 
   refillHealth: function() {
