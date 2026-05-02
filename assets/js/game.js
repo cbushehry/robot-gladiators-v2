@@ -1,14 +1,14 @@
 /* GAME FUNCTIONS */
 
 // function to generate a random numeric value
-var randomNumber = function(min, max) {
-  var value = Math.floor(Math.random() * (max - min) + min);
+const randomNumber = function(min, max) {
+  const value = Math.floor(Math.random() * (max - min) + min);
 
   return value;
 };
 
-var fightOrSkip = function() {
-  var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+const fightOrSkip = function() {
+  let promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
   if (promptFight === "" || promptFight === null) {
     window.alert("You need to provide a valid answer! Please try again.");
@@ -18,7 +18,7 @@ var fightOrSkip = function() {
   promptFight = promptFight.toLowerCase();
 
   if (promptFight === "skip") {
-    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+    const confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
     if (confirmSkip) {
       window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
@@ -30,8 +30,8 @@ var fightOrSkip = function() {
   return false;
 };
 
-var fight = function(enemy) {
-  var isPlayerTurn = true;
+const fight = function(enemy) {
+  let isPlayerTurn = true;
 
   if (Math.random() > 0.5) {
     isPlayerTurn = false;
@@ -43,7 +43,7 @@ var fight = function(enemy) {
         break;
       }
 
-      var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+      const damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
 
       enemy.health = Math.max(0, enemy.health - damage);
       console.log(
@@ -67,7 +67,7 @@ var fight = function(enemy) {
         window.alert(enemy.name + " still has " + enemy.health + " health left.");
       }
     } else {
-      var damage = randomNumber(enemy.attack - 3, enemy.attack);
+      const damage = randomNumber(enemy.attack - 3, enemy.attack);
 
       playerInfo.health = Math.max(0, playerInfo.health - damage);
       console.log(
@@ -92,16 +92,16 @@ var fight = function(enemy) {
   }
 };
 
-var startGame = function() {
+const startGame = function() {
   playerInfo.reset();
 
-  for (var i = 0; i < enemyInfo.length; i++) {
+  for (let i = 0; i < enemyInfo.length; i++) {
     console.log(playerInfo);
 
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
-      var pickedEnemyObj = enemyInfo[i];
+      const pickedEnemyObj = enemyInfo[i];
 
       pickedEnemyObj.health = randomNumber(40, 60);
 
@@ -110,7 +110,7 @@ var startGame = function() {
       fight(pickedEnemyObj);
 
       if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
-        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+        const storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
 
         if (storeConfirm) {
           shop();
@@ -126,10 +126,10 @@ var startGame = function() {
   endGame();
 };
 
-var endGame = function() {
+const endGame = function() {
   window.alert("The game has now ended. Let's see how you did!");
 
-  var highScore = localStorage.getItem("highscore");
+  let highScore = localStorage.getItem("highscore");
   if (highScore === null) {
     highScore = 0;
   }
@@ -143,7 +143,7 @@ var endGame = function() {
     alert(playerInfo.name + " did not beat the high score of " + highScore + ". Maybe next time!");
   }
 
-  var playAgainConfirm = window.confirm("Would you like to play again?");
+  const playAgainConfirm = window.confirm("Would you like to play again?");
 
   if (playAgainConfirm) {
     startGame();
@@ -152,8 +152,8 @@ var endGame = function() {
   }
 };
 
-var shop = function() {
-  var shopOptionPrompt = window.prompt(
+const shop = function() {
+  let shopOptionPrompt = window.prompt(
     "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
   );
 
@@ -176,8 +176,8 @@ var shop = function() {
   }
 };
 
-var getPlayerName = function() {
-  var name = "";
+const getPlayerName = function() {
+  let name = "";
   while (name === "" || name === null) {
     name = prompt("What is your robot's name?");
   }
@@ -188,7 +188,7 @@ var getPlayerName = function() {
 
 
 /* GAME INFORMATION / VARIABLES */
-var playerInfo = {
+const playerInfo = {
   name: getPlayerName(),
   health: 120,
   attack: 12,
@@ -221,7 +221,7 @@ var playerInfo = {
 };
 
 // enemy information
-var enemyInfo = [
+const enemyInfo = [
   {
     name: 'ENEMY ROBOT 1',
     attack: randomNumber(11, 12)
