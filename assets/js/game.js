@@ -200,8 +200,8 @@ const playerInfo = {
   },
 
   refillHealth: function() {
-    if (this.money >= 7) {
-      window.alert("Refilling player's health by 40 for 5 dollars.");
+    if (this.money >= 5) {
+      window.alert("Refilling player's health by 50 for 5 dollars.");
       this.health += 50;
       this.money -= 5;
     } else {
