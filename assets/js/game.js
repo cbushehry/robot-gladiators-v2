@@ -18,7 +18,7 @@ const fightOrSkip = function() {
   promptFight = promptFight.toLowerCase();
 
   if (promptFight === "skip") {
-    const confirmSkip = window.confirm("Are you sure you'd like to quit?");
+    const confirmSkip = window.confirm("Are you sure you'd like to skip this fight?");
 
     if (confirmSkip) {
       window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
@@ -211,9 +211,9 @@ const playerInfo = {
 
   upgradeAttack: function() {
     if (this.money >= 6) {
-      window.alert("Upgrading player's attack by 9 for 5 dollars.");
+      window.alert("Upgrading player's attack by 9 for 6 dollars.");
       this.attack += 9;
-      this.money -= 5;
+      this.money -= 6;
     } else {
       window.alert("You don't have enough money!");
     }
