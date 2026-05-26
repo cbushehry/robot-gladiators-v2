@@ -2,7 +2,7 @@
 
 // function to generate a random numeric value
 const randomNumber = function(min, max) {
-  const value = Math.floor(Math.random() * (max - min) + min);
+  const value = Math.floor(Math.random() * (max - min + 1) + min);
 
   return value;
 };
@@ -26,6 +26,8 @@ const fightOrSkip = function() {
 
       return true;
     }
+
+    return fightOrSkip();
   }
   return false;
 };
