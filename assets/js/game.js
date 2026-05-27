@@ -156,7 +156,7 @@ const endGame = function() {
 
 const shop = function() {
   let shopOptionPrompt = window.prompt(
-    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
+    "You have $" + playerInfo.money + ". Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter 1 for REFILL ($5), 2 for UPGRADE ($6), or 3 for LEAVE."
   );
 
   shopOptionPrompt = parseInt(shopOptionPrompt);
@@ -238,10 +238,6 @@ const enemyInfo = [
   }
 ];
 
-console.log(enemyInfo);
-console.log(enemyInfo[0]);
-console.log(enemyInfo[0].name);
-console.log(enemyInfo[0]['attack']);
 /* END GAME INFORMATION / VARIABLES */
 
 /* RUN GAME */
